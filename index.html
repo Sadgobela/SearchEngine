@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Search Code</title>
+<link rel="icon" type="image/gif" href="One-Piece-anime-48.png" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+
+
+#Input {
+  background-image: url('698627-icon-111-search-128.png');
+  background-size: 20px 20px;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#MyInfo {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#MyInfo th, #MyInfo td {
+  text-align: left;
+  padding: 12px;
+}
+
+#MyInfo tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#MyInfo tr.header, #MyInfo tr:hover {
+  background-color: green;
+}
+
+</style>
+</head>
+<body>
+
+<h2>My First Search Code</h2>
+
+<input type="text" id="Input" onkeyup="MySearchCode()" placeholder="Search for info.." title="Type in a name">
+
+<table id="MyInfo">
+  <tr class="header">
+    <th style="width:60%;">Things</th>
+    <th style="width:40%;">Country</th>
+  </tr>
+  <tr>
+    <td>Berlin</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Stockholm</td>
+    <td>Sweden</td>
+  </tr>
+  <tr>
+    <td>London</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Beer</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Ottawa</td>
+    <td>Canada</td>
+  </tr>
+  <tr>
+    <td>Pizza</td>
+    <td>Italy</td>
+  </tr>
+  <tr>
+    <td>Ellizabeth-II</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Paris</td>
+    <td>France</td>
+  </tr>
+</table>
+
+<script>
+function MySearchCode() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("Input");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("MyInfo");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+</body>
+</html>
